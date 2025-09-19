@@ -4,6 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adipole Music App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 500;
+        }
+        #container{
+            background-color: #29263f;
+        }
+        .song-profile{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .song-profile img{
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .song-profile>div{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .song-profile p{
+            color: #ddddde;
+            font-size: 20px;
+            white-space: nowrap;
+        }
+        .song-profile span{
+            color: #807ca1;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+        footer{
+            width: 100vw;
+            height: 70px;
+            position: fixed;
+            bottom: 0;
+            background-color: #1d1b2d;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #music-controls{
+            width: 50vw;
+        }
+        #music-controls::-webkit-media-controls-panel {
+            background-color: #1d1b2d;
+            border-radius: 0;
+            width: 100vw;
+        }
+        #music-controls::-webkit-media-controls-muted-button, #music-controls::-webkit-media-controls-play-button{
+            background-color: white;
+            border-radius: 30px;
+        }
+        #music-controls::-webkit-media-controls-timeline {
+            background-color: white;
+            width:100vw;
+            border-radius: 30px;
+            margin-inline: 30px;
+            border-radius: 30px;
+        }
+        audio::webkit-media-controls-current-time-display{
+            color: white;
+        }
+        audio::webkit-media-controls-time-remaining-display{
+            display: none;
+        }
+    </style>
 </head>
 <body>
    <section id="container">
@@ -59,12 +133,112 @@
             </div>
         </header>
         <section id="music-area">
-            <main></main>
-            <aside></aside>
+            <main>
+                <div id="hero">
+                    <img src="./assets/hero.webp">
+                    <h3>Trending New Hits</h3>
+                    <h1>Break My Heart</h1>
+                    <h2>David Kushner</h2>
+                    <div id="cta">
+                        <button>Listen Now</button>
+                        <button><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="section-music-list">
+                    <h4>Top Artists</h4>
+                    <a href="#">See All</a>
+                    <div class="list-items">
+                        <div class="list-items">
+                            <img src="./assets/daylight song label.webp">
+                            <p>Artist Name</p>
+                            <span>000 views</span>
+                        </div>
+                        <div class="list-items">
+                            <img src="./assets/daylight song label.webp">
+                            <p>Artist Name</p>
+                            <span>000 views</span>
+                        </div>
+                        <div class="list-items">
+                            <img src="./assets/daylight song label.webp">
+                            <p>Artist Name</p>
+                            <span>000 views</span>
+                        </div>
+                        <div class="list-items">
+                            <img src="./assets/daylight song label.webp">
+                            <p>Artist Name</p>
+                            <span>000 views</span>
+                        </div>
+                        <div class="list-items">
+                            <img src="./assets/daylight song label.webp">
+                            <p>Artist Name</p>
+                            <span>000 views</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-music-list">
+
+                </div>
+            </main>
+            <aside>
+                <h4>Hot Boosts</h4>
+                <div id="song-list-items">
+                    <div id="song-list-item">
+                    <div class="song-profile">
+                        <img src="./assets/daylight song label.webp">
+                        <div>
+                            <p>Song Name</p>
+                            <span>Song Artist</span>
+                        </div>
+                    </div>
+                        <div id="play-btn">
+                            <span id="underlay-circle">
+                                <i class="fa-solid fa-play"></i>
+                            </span>
+                        </div>
+                </div>
+                <!-- dynamically added songs to script -->
+                </div>
+            </aside>
         </section>
     </section>
    </section>
-   <footer id="music-player"></footer>
+   <footer id="music-player">
+            <div class="song-profile">
+                <img src="./assets/daylight song label.webp">
+                    <div>
+                    <p>Song Name</p>
+                    <span>Song Artist</span>
+                    </div>
+            </div>
+                <audio id="music-controls" controls>
+                    <source src="./assets/David Kushner - Daylight.mp3">
+                </audio>
+            <i class="fa-regular fa-heart"></i>
+            <div id="volume-controls">
+                <i class="fa-solid fa-volume-high"></i>
+                <input type="range" min="0" max="100" value="50">
+            </div>
+   </footer>
    <script src="https://kit.fontawesome.com/b56e34f69e.js" crossorigin="anonymous"></script>
+   <script>
+    for(let i=0; i<10; i++){
+        document.getElementById("song-list-items").innerHTML = document.getElementById("song-list-items").innerHTML + `
+                <div id="song-list-item">
+                    <div class="song-profile">
+                        <img src="./assets/daylight song label.webp">
+                        <div>
+                            <p>Song Name</p>
+                            <span>Song Artist</span>
+                        </div>
+                    </div>
+                        <div id="play-btn">
+                            <span id="underlay-circle">
+                                <i class="fa-solid fa-play"></i>
+                            </span>
+                        </div>
+                </div>
+                `;
+    }
+   </script>
 </body>
 </html>
