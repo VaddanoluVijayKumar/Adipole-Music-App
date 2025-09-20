@@ -14,7 +14,117 @@
         }
         #container{
             background-color: #29263f;
+            display: flex;
+            flex-direction: row;
         }
+        #container>nav{
+            height: 100vh;
+            background-color: #2f2b45;
+        }
+        #container div{
+            margin-left: 20px;
+        }
+        #container #branding{
+            margin-block: 20px;
+            margin-inline: 30px;
+        }
+        #container>nav div h5{
+            color: #7c779d;
+            font-weight: normal;
+            margin-top: 20px;
+        }
+        #container>nav i{
+            margin-right: 5px;
+            width: 25px;
+        }
+        #container>nav a{
+            display: block;
+            padding: 4px;
+            text-decoration: none;
+        }
+        #container>nav li{
+            list-style-type: none;
+            padding-left: 30px;
+        }
+        #container>nav li button{
+            background-color: transparent;
+            border: 2px dashed white;
+            padding: 10px 20px 10px 5px;
+            border-radius: 30px;
+            margin-top: 10px;
+        }
+        #main-content{
+            width: 100vw;
+        }
+        #main-content header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 0.2px solid #7c779d;
+        }
+        header #menubar{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        header #menubar li{
+            list-style-type: none;
+            padding: 0px 20px;
+            color: #c2bfdc;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        header #menubar a{
+            text-decoration: none;
+            
+            padding: 30px 0px;
+        }
+        header #menubar a.active{
+            border-bottom: 3px solid white;
+        }
+        header #menubar a.active li{
+            color: white;
+            font-size: 15px;
+        }
+        header #userarea{
+            display: flex;
+            flex-direction: row;
+            text-align: right;
+            align-items: center;
+        }
+        header #userinfo{
+            position: relative;
+        }
+        header .dropdown-btn{
+            background-color: transparent;
+            border: none;
+            color: #87a387;
+            cursor: pointer;
+        }
+        header .dropdown-btn i{
+            margin-left: 5px;
+        }
+        header .dropdown-content{
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #87a387;
+            border-radius: 15px;
+            padding: 5px;
+        }
+        header .dropdown-content a{
+            display: block;
+            padding: 10px 30px;
+            text-decoration: none;
+        }
+        header .dropdown-content li{
+            list-style-type: none;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+
         .song-profile{
             display: flex;
             flex-direction: row;
@@ -88,30 +198,28 @@
         <div id="menu">
             <h5>MENU</h5>
             <a href="./components/explore.html"><li class="active"><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
+            <a href="./components/explore.html"><li><i class="fa-brands fa-soundcloud"></i>Genres</li></a>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-compact-disk"></i>Artists</li></a>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-microphone-lines"></i>Albums</li></a>
         </div>
         <div id="library">
-            <h5>MENU</h5>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
+            <h5>LIBRARY</h5>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-clock"></i>Recent</li></a>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-compact-disk"></i>Albums</li></a>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-heart"></i>Favourites</li></a>
         </div>
         <div id="playlist">
-            <h5>MENU</h5>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
-            <a href="./components/explore.html"><li><i class="fa-solid fa-music"></i>Explore</li></a>
+            <h5>PLAYLIST</h5>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-headphones"></i>Good vibes</li></a>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-headphones"></i>Best Jazz</li></a>
+            <a href="./components/explore.html"><li><i class="fa-solid fa-headphones"></i>Party</li></a>
             <button><i class="fa-solid fa-plus"></i>Create New</button>
         </div>
     </nav>
     <section id="main-content">
         <header>
             <nav id="menubar">
-                <a href="#"><li class="active">Music</li></a>
+                <a href="#" class="active"><li>Music</li></a>
                 <a href="#"><li>Pools</li></a>
                 <a href="#"><li>NFTs</li></a>
                 <a href="#"><li>Launchpool/Launchpad</li></a>
@@ -121,7 +229,7 @@
                 <div id="userinfo"></div>
                 <span>Username</span>
                 <div class="dropdown">
-                    <button class="dropdown-btn">User id</button>
+                    <button class="dropdown-btn">User id <i class="fa-solid fa-circle-chevron-down"></i></button>
                     <div class="dropdown-content">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Account</a></li>
